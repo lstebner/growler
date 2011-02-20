@@ -16,6 +16,7 @@
 	color:#ddd;
 	font-size:14px;
 	font-family:georgia;
+	z-index:5000;
 }
 
 .growl-message .close-link{
