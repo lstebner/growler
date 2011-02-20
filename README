@@ -5,3 +5,16 @@ This is the release version 1 of my jQuery Growl Alert Plugin. It was created fo
 Feel free to contact me about this plugin via email, just make sure you include something in the subject that let's me know the email is in reference to this plugin or I may never read it!
 
 Thanks and please enjoy this and be constructive in your criticism, not rude!
+
+Current Features:
+- Custom title/content text
+- Manual close button
+- Auto show on load
+- Manually show function call
+- Ability to change title/content through 'show' call
+- Custom fade duration
+- Custom message display duration
+
+Future Plans:
+- Custom close button
+- Positioning options
