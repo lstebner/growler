@@ -8,6 +8,10 @@ Lots of (basic) feature support added
 - some code restructuring (sorry for the lack of comments, will come soon)
 - demo updated to represent calls for the 4 corners
 
+Next:
+- Finish message queueing
+- Expand demo to be a more functional documentation
+
 V1 | 02.20.2011
 by Luke Stebner (luke.stebner@gmail.com)
 This is the release version 1 of my jQuery Growl Alert Plugin. It was created for a post on programming.linnnk.com and is available for anyone to use and expand as they please. Though if bugs are found or expansions are made I do ask that you share these with us in the comments on the post about the article. The post can be found at: http://programming.linnnk.com/javascript/jquery-growl-alert/

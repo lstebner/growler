@@ -1,4 +1,41 @@
 (function( $ ){
+    /**
+    *
+    * growAlert plugin by Luke Stebner (luke.stebner@gmail.com)
+    * created on 2.20.2011 | last modified 2.21.2011
+    * 
+    * This little plugin is used to create little alert messages in the style that Growl works. It was
+    * created as a tutorial demo for programming.linnnk.com, but due to popularity I've decided to flush
+    * it out into a more useful piece of code than just the basic alert functionality. 
+    *
+    * If you stumbled upon this piece of code and don't know where it originated, you can head over to it's
+    * github location here: https://github.com/lstebner/jQuery-Growl-Alert-Plugin
+    *
+    * My growlAlert plugin is free for anyone to use however they see fit, though I ask that you ping me
+    * back if you do anything really cool with it because I'd love to check it out and/or show it off. 
+    *
+    * 
+    * Params:
+    * @opts     <string or object>  Either a method name to call or an object of settings on initialization
+    *       settings {
+    *           autoShow : true/false - Show this message right away or wait for 'show' call
+    *           fadeTime : milliseconds - The amount of time over which to fadeIn and fadeOut
+    *           delayTime : milliseconds - The amount of time to leave the message displayed before fadeOut call
+    *           title : string - The title to use for the alert
+    *           content: string - The content for the growl alert
+    *           closeIcon: string - The path to the image to use as the close icon
+    *           onShow: function - A callback function for when the message is fully displayed
+    *           onComplete: function - A callback function for when the message has disappeared (completed)
+    *           position: string - Where to position the alert (top-left, top-right, bottom-left, bottom-right)
+    *       }
+    *       methods{
+    *           - show(settings) - Show the message immediately on call 
+    *               @settings   <object>    Any settings data to override immediately
+    *       }
+    *
+    * @data     <object>            An object of data to pass with the method call specified for 'opts'
+    *
+    */
 	$.fn.growlAlert = function(opts, data){
 	    //settings for growl
 		var settings = {
@@ -39,7 +76,7 @@
 		                break;
 		        }
 		    },
-		    onComplete: function(callback){
+		    onComplete: function(){
 		        if (settings.onComplete){
 		            settings.onComplete();
 		        }
