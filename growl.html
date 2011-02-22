@@ -12,22 +12,23 @@
 		<div id="growl-alert" class="growl-message"></div>
 		
 		<ul>
-			<li><a href="#" class="do-alert" id="alert-1">Show First Alert</a></li>
-			<li><a href="#" class="do-alert" id="alert-2">Show Second Alert</a></li>
-			<li><a href="#" class="do-alert" id="alert-3">Show Third Alert</a></li>
+			<li><a href="#" class="do-alert" id="alert-top-left">Show Top Left</a></li>
+			<li><a href="#" class="do-alert" id="alert-top-right">Show Top Right</a></li>
+			<li><a href="#" class="do-alert" id="alert-bottom-left">Show Bottom Left</a></li>
+			<li><a href="#" class="do-alert" id="alert-bottom-right">Show Bottom Right</a></li>
 		</ul>
 		
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function(){
 				$('#growl-alert').growlAlert({ 
 					autoShow: false,
-					content: 'This is a demo Growl alert, notice that the title changes with the different links.'
+					content: 'This is a demo Growl alert, notice that the title and position changes with the different links.'
 				});
 				
-				$('.do-alert').click(function(){
-					var num = $(this).attr('id').replace('alert-', '');
-					$('#growl-alert').growlAlert('show', { title:'Show Alert ' + num });
-				});
+				$('#alert-top-left').click(function(){ $('#growl-alert').growlAlert('show', { title:'Top Left Alert', position:'top-left' }) });;
+				$('#alert-top-right').click(function(){ $('#growl-alert').growlAlert('show', { title:'Top Right Alert', position:'top-right' }); });
+				$('#alert-bottom-right').click(function(){ $('#growl-alert').growlAlert('show', { title:'Bottom Right Alert', position:'bottom-right' }); });
+				$('#alert-bottom-left').click(function(){ $('#growl-alert').growlAlert('show', { title:'Bottom Left Alert', position:'bottom-left' }); });		
 			});
 		</script>
 	</body>
