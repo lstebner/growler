@@ -1,7 +1,7 @@
 import Growler from "./Growler"
 
 // below here is just to set up the demo which really doesn't belong here...
-const n = 1;
+let n = 1;
 const buttonsContainer = document.createElement("div")
 buttonsContainer.style.display = "flex"
 buttonsContainer.style.flexDirection = "column"
