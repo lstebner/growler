@@ -1,17 +1,31 @@
 import Growler from "./Growler"
 
-// below here is just to set up the demo
-var n = 1;
+// below here is just to set up the demo which really doesn't belong here...
+const n = 1;
+const buttonsContainer = document.createElement("div")
+buttonsContainer.style.display = "flex"
+buttonsContainer.style.flexDirection = "column"
+buttonsContainer.style.justifyContent = "center"
+buttonsContainer.style.alignItems = "center"
+buttonsContainer.style.height = "100vh"
+buttonsContainer.style.width = "100vw"
+buttonsContainer.style.rowGap = ".5em"
+document.body.appendChild(buttonsContainer)
 
-var button = document.createElement("button")
-button.name = "growl"
-button.value = "growl"
-button.innerText = "growl"
-button.addEventListener("click", function() {
-  var allPositions = ["TopRight", "TopLeft", "BottomRight", "BottomLeft"]
-  var position = allPositions[Math.floor(Math.random() * allPositions.length)]
 
-  Growler({ contents: `hello, for the ${n} time. the message is now longer to show some wrapping. wrapping cannot be avoided, that's just how life goes you know...`, position })
-  n++;
-})
-document.body.appendChild(button)
+const allPositions = ["TopRight", "TopLeft", "BottomRight", "BottomLeft"]
+
+for (let position of allPositions) {
+  const button = document.createElement("button")
+  button.name = "growl_button"
+  button.value = position
+  button.innerText = `growl ${position}`
+  button.addEventListener("click", function() {
+    //var position = allPositions[Math.floor(Math.random() * allPositions.length)]
+
+    Growler({ contents: `hello, for the ${n} time. the message is now longer to show some wrapping. wrapping cannot be avoided, that's just how life goes you know...`, position })
+    n++;
+  })
+
+  buttonsContainer.appendChild(button)
+}
