@@ -1,3 +1,33 @@
+# Growler
+
+back from the dead as of July 31, 2021
+
+## about
+
+This repo was originally a jquery plugin for making alerts similar to the Growl application that was really popular at the time. Since then, notification center has been introduced, along with browser notifications, and jQuery has been more or less abandoned by the web developer community. For these reasons, and my own neglegance, this repo was left to rot and I eventually archived it. Recently though I've been inspired to modernize old code, and so I chose this repo to start with. 
+
+More to come soon!
+
+## Architecture
+
+Growler is a notification system, but a Growler Message is pretty simple in general. 
+
+A Growler Message can:
+  - contain any HTML contents desired
+  - be auto dismissed
+  - be manually dismissed
+  - be "expanded" for detailed contents
+  - animate on show and hide
+  - have a custom delay for auto dismiss
+  - be queued to avoid overload*
+  - has callback hooks for on show, on dismissed, and on clicked
+
+  *this queue requires an additional layer be designed. not part of MVP
+  *expanded contents functionality is also not needed for MVP
+
+
+## the old README contents for posterity
+
 V1.1 | 02.21.2011
 Lots of (basic) feature support added
 - closeIcon: path to a custom close icon

@@ -1,0 +1,45 @@
+:root {
+  --growler-background-color: #fff;
+  --growler-text-color: #222;
+  --growler-border: 1px solid #000;
+  --growler-border-radius: 4px;
+  --growler-message-font-size: 1rem;
+}
+
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  max-width: 420px;
+  position: fixed;
+}
+
+.positionTopRight {
+  top: 0;
+  right: 0;
+}
+
+.positionBottomRight {
+  bottom: 0;
+  right: 0;
+}
+
+.positionBottomLeft {
+  bottom: 0;
+  left: 0;
+}
+
+.positionTopLeft {
+  top: 0;
+  left: 0;
+}
+
+.message {
+  background-color: var(--growler-background-color);
+  border-radius: var(--growler-border-radius);
+  border: var(--growler-border);
+  color: var(--growler-text-color);
+  font-size: var(--growler-message-font-size);
+  margin: .5em 0;
+  padding: .5em;
+}
