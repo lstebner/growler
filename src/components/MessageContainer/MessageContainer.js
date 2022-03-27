@@ -3,7 +3,6 @@ import constants from "../../constants"
 import styles from "./MessageContainer.styles.scss"
 
 export default function MessageContainer({ position }) {
-  console.log(position)
   const positionStyles = styles[`position-${position}`]
   const containerId = `messages-container__${position}`
   let element = document.getElementById(containerId)
@@ -16,8 +15,6 @@ export default function MessageContainer({ position }) {
 
     document.body.appendChild(element)
   }
-
-  console.log(">>>", element)
 
   return element
 }
