@@ -146,7 +146,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Broadcast)\n/* harmony export */ });\n/* harmony import */ var _Broadcast_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Broadcast.styles.css */ \"./src/Broadcast/Broadcast.styles.css\");\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components */ \"./src/components/index.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ \"./src/constants.js\");\n\n\n\n\n\n\nfunction Broadcast(options) {\n  const mergedOptions = Object.assign({}, Broadcast.defaultOptions, options)\n  const { duration, position } = mergedOptions\n\n  const notification = (0,_components__WEBPACK_IMPORTED_MODULE_1__.Notification)(mergedOptions)\n  const messagesContainer = (0,_components__WEBPACK_IMPORTED_MODULE_1__.MessageContainer)(position)\n\n  messagesContainer.displayNotification(notification)\n}\n\nBroadcast.defaultOptions = {\n  duration: _constants__WEBPACK_IMPORTED_MODULE_2__.DURATION.MEDIUM,\n  contents: \"\",\n  position: _constants__WEBPACK_IMPORTED_MODULE_2__.POSITIONS.NE,\n}\n\n\n\n//# sourceURL=webpack://Broadcast/./src/Broadcast/Broadcast.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Broadcaster\": () => (/* binding */ Broadcaster),\n/* harmony export */   \"default\": () => (/* binding */ Broadcast)\n/* harmony export */ });\n/* harmony import */ var _Broadcast_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Broadcast.styles.css */ \"./src/Broadcast/Broadcast.styles.css\");\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components */ \"./src/components/index.js\");\n/* harmony import */ var _NotificationFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../NotificationFactory */ \"./src/NotificationFactory.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants */ \"./src/constants.js\");\n\n\n\n\n\n\n\nclass Broadcaster {\n  static instance() {\n    if (!this._instance) {\n      this._instance = new Broadcaster(_NotificationFactory__WEBPACK_IMPORTED_MODULE_2__.default)\n    }\n\n    return this._instance\n  }\n\n  constructor(notificationFactory) {\n    this.notificationFactory = notificationFactory\n  }\n\n  toast(options) {\n    return this.notificationFactory.create(_constants__WEBPACK_IMPORTED_MODULE_3__.NOTIFICATION_TYPES.TOAST, options)\n  }\n}\n\nfunction Broadcast(options) {\n  const mergedOptions = Object.assign({}, Broadcast.defaultOptions, options)\n  const { duration, position } = mergedOptions\n\n  const notification = Broadcaster.instance().toast(mergedOptions)\n  const messagesContainer = (0,_components__WEBPACK_IMPORTED_MODULE_1__.MessageContainer)(position)\n\n  messagesContainer.displayNotification(notification)\n}\n\nBroadcast.defaultOptions = {\n  duration: _constants__WEBPACK_IMPORTED_MODULE_3__.DURATION.MEDIUM,\n  contents: \"\",\n  position: _constants__WEBPACK_IMPORTED_MODULE_3__.POSITIONS.NE,\n}\n\n\n\n//# sourceURL=webpack://Broadcast/./src/Broadcast/Broadcast.js?");
 
 /***/ }),
 
@@ -157,6 +157,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Broadcast__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Broadcast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Broadcast */ \"./src/Broadcast/Broadcast.js\");\n\n\n\n//# sourceURL=webpack://Broadcast/./src/Broadcast/index.js?");
+
+/***/ }),
+
+/***/ "./src/NotificationFactory.js":
+/*!************************************!*\
+  !*** ./src/NotificationFactory.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ NotificationFactory)\n/* harmony export */ });\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ \"./src/components/index.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ \"./src/constants.js\");\n\n\n\nconst typeToComponentMap = {\n  [_constants__WEBPACK_IMPORTED_MODULE_1__.NOTIFICATION_TYPES.TOAST]: _components__WEBPACK_IMPORTED_MODULE_0__.Notification,\n}\n\nclass NotificationFactory {\n  static create(notificationType, notificationOptions) {\n    if (!typeToComponentMap[notificationType]) {\n      console.error(`NotificationFactory doesn't understand type '${notificationType}'`)\n      return null\n    }\n\n    return typeToComponentMap[notificationType](notificationOptions)\n  }\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/NotificationFactory.js?");
 
 /***/ }),
 
@@ -226,7 +236,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Broadcast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Broadcast */ \"./src/Broadcast/index.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ \"./src/constants.js\");\n\n\n\n// below here is just to set up the demo which really doesn't belong here...\nlet n = 1;\nconst buttonsContainer = document.createElement(\"div\")\nbuttonsContainer.style.display = \"flex\"\nbuttonsContainer.style.flexDirection = \"column\"\nbuttonsContainer.style.justifyContent = \"center\"\nbuttonsContainer.style.alignItems = \"center\"\nbuttonsContainer.style.height = \"100vh\"\nbuttonsContainer.style.width = \"100vw\"\nbuttonsContainer.style.rowGap = \".5em\"\ndocument.body.appendChild(buttonsContainer)\n\n\nconst allPositions = Object.keys(_constants__WEBPACK_IMPORTED_MODULE_1__.POSITIONS)\n\nfor (let position of allPositions) {\n  const button = document.createElement(\"button\")\n  button.name = \"broadcast_button\"\n  button.value = position\n  button.innerText = `broadcast ${position}`\n  button.addEventListener(\"click\", function() {\n    //var position = allPositions[Math.floor(Math.random() * allPositions.length)]\n\n    ;(0,_Broadcast__WEBPACK_IMPORTED_MODULE_0__.default)({ contents: `hello, for the ${n} time. the message is now longer to show some wrapping. wrapping cannot be avoided, that's just how life goes you know...`, position })\n    n++;\n  })\n\n  buttonsContainer.appendChild(button)\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Broadcast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Broadcast */ \"./src/Broadcast/index.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ \"./src/constants.js\");\n\n\n\n// below here is just to set up the demo which really doesn't belong here...\nlet n = 1;\nconst buttonsContainer = document.createElement(\"div\")\nbuttonsContainer.style.display = \"flex\"\nbuttonsContainer.style.flexDirection = \"column\"\nbuttonsContainer.style.justifyContent = \"center\"\nbuttonsContainer.style.alignItems = \"center\"\nbuttonsContainer.style.height = \"100vh\"\nbuttonsContainer.style.width = \"100vw\"\nbuttonsContainer.style.rowGap = \".5em\"\ndocument.body.appendChild(buttonsContainer)\n\nconst allPositions = Object.keys(_constants__WEBPACK_IMPORTED_MODULE_1__.POSITIONS)\n\nfor (let position of allPositions) {\n  const button = document.createElement(\"button\")\n  button.name = \"broadcast_button\"\n  button.value = position\n  button.innerText = `broadcast ${position}`\n  button.addEventListener(\"click\", function() {\n    ;(0,_Broadcast__WEBPACK_IMPORTED_MODULE_0__.default)({ contents: `hello, for the ${n} time. the message is now longer to show some wrapping. wrapping cannot be avoided, that's just how life goes you know...`, position })\n    n++;\n  })\n\n  buttonsContainer.appendChild(button)\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/index.js?");
 
 /***/ }),
 
@@ -236,7 +246,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Bro
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ enumb)\n/* harmony export */ });\nfunction enumb(keys) {\n  let obj = {}\n\n  for (let i in keys) {\n    obj[i] = keys[i]\n  }\n\n  return obj\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/utils/enumb.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ enumb)\n/* harmony export */ });\nfunction enumb(keys) {\n  let obj = {}\n\n  for (let i in keys) {\n    obj[keys[i]] = i\n  }\n\n  return obj\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/utils/enumb.js?");
 
 /***/ }),
 
@@ -246,7 +256,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"enumb\": () => (/* reexport safe */ _enumb__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _enumb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enumb */ \"./src/utils/enumb.js\");\n\n\n\n//# sourceURL=webpack://Broadcast/./src/utils/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"enumb\": () => (/* reexport safe */ _enumb__WEBPACK_IMPORTED_MODULE_0__.default),\n/* harmony export */   \"memo\": () => (/* reexport safe */ _memo__WEBPACK_IMPORTED_MODULE_1__.default)\n/* harmony export */ });\n/* harmony import */ var _enumb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enumb */ \"./src/utils/enumb.js\");\n/* harmony import */ var _memo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./memo */ \"./src/utils/memo.js\");\n\n\n\n\n//# sourceURL=webpack://Broadcast/./src/utils/index.js?");
+
+/***/ }),
+
+/***/ "./src/utils/memo.js":
+/*!***************************!*\
+  !*** ./src/utils/memo.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ memo)\n/* harmony export */ });\nfunction memo(sourceFunction) {\n  const returnValues = new Map()\n\n  return (...args) => {\n    const key = JSON.stringify(args)\n\n    if (returnValues.has(key) === false) {\n      returnValues.set(key, sourceFunction(...args))\n    }\n\n    return returnValues.get(key)\n  }\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/utils/memo.js?");
 
 /***/ })
 

@@ -13,7 +13,6 @@ buttonsContainer.style.width = "100vw"
 buttonsContainer.style.rowGap = ".5em"
 document.body.appendChild(buttonsContainer)
 
-
 const allPositions = Object.keys(POSITIONS)
 
 for (let position of allPositions) {
@@ -22,8 +21,6 @@ for (let position of allPositions) {
   button.value = position
   button.innerText = `broadcast ${position}`
   button.addEventListener("click", function() {
-    //var position = allPositions[Math.floor(Math.random() * allPositions.length)]
-
     Broadcast({ contents: `hello, for the ${n} time. the message is now longer to show some wrapping. wrapping cannot be avoided, that's just how life goes you know...`, position })
     n++;
   })
