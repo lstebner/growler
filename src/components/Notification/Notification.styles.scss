@@ -1,0 +1,10 @@
+
+.container {
+  background-color: var(--growler-background-color);
+  border-radius: var(--growler-border-radius);
+  border: var(--growler-border);
+  color: var(--growler-text-color);
+  font-size: var(--growler-message-font-size);
+  margin: .5em 0;
+  padding: .5em;
+}
