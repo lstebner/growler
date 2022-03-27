@@ -1,8 +1,8 @@
 export default function enumb(keys) {
   let obj = {}
 
-  for (let k of keys) {
-    obj[k] = k
+  for (let i in keys) {
+    obj[i] = keys[i]
   }
 
   return obj

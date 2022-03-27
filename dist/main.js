@@ -216,7 +216,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"POSITIONS\": () => (/* binding */ POSITIONS),\n/* harmony export */   \"EVENTS\": () => (/* binding */ EVENTS),\n/* harmony export */   \"DURATION\": () => (/* binding */ DURATION)\n/* harmony export */ });\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./src/utils/index.js\");\n\n\nconst POSITIONS = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.enumb)([\n  \"NE\",\n  \"SE\",\n  \"SW\",\n  \"NW\",\n])\n\nconst EVENTS = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.enumb)([\n  \"DISMISS\",\n])\n\nconst DURATION = {\n  INFINITE: 0,\n  SHORT: 2000,\n  MEDIUM: 4000,\n  LONG: 10000,\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/constants.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"POSITIONS\": () => (/* binding */ POSITIONS),\n/* harmony export */   \"EVENTS\": () => (/* binding */ EVENTS),\n/* harmony export */   \"DURATION\": () => (/* binding */ DURATION),\n/* harmony export */   \"NOTIFICATION_TYPES\": () => (/* binding */ NOTIFICATION_TYPES)\n/* harmony export */ });\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./src/utils/index.js\");\n\n\nconst POSITIONS = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.enumb)([\n  \"NE\",\n  \"SE\",\n  \"SW\",\n  \"NW\",\n])\n\nconst EVENTS = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.enumb)([\n  \"DISMISS\",\n])\n\nconst DURATION = {\n  INFINITE: 0,\n  SHORT: 2000,\n  MEDIUM: 4000,\n  LONG: 10000,\n}\n\nconst NOTIFICATION_TYPES = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.enumb)([\n  \"TOAST\",\n])\n\n\n//# sourceURL=webpack://Broadcast/./src/constants.js?");
 
 /***/ }),
 
@@ -236,7 +236,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Bro
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ enumb)\n/* harmony export */ });\nfunction enumb(keys) {\n  let obj = {}\n\n  for (let k of keys) {\n    obj[k] = k\n  }\n\n  return obj\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/utils/enumb.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ enumb)\n/* harmony export */ });\nfunction enumb(keys) {\n  let obj = {}\n\n  for (let i in keys) {\n    obj[i] = keys[i]\n  }\n\n  return obj\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/utils/enumb.js?");
 
 /***/ }),
 

@@ -17,3 +17,7 @@ export const DURATION = {
   MEDIUM: 4000,
   LONG: 10000,
 }
+
+export const NOTIFICATION_TYPES = enumb([
+  "TOAST",
+])
