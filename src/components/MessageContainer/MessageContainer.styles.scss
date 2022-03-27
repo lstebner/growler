@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  max-width: 420px;
+  position: fixed;
+}
+
+.position-NE {
+  top: 0;
+  right: 0;
+}
+
+.position-SE {
+  bottom: 0;
+  right: 0;
+}
+
+.position-SW {
+  bottom: 0;
+  left: 0;
+}
+
+.position-NW {
+  top: 0;
+  left: 0;
+}
+

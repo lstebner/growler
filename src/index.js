@@ -1,4 +1,5 @@
 import Growler from "./Growler"
+import { POSITIONS } from "./constants"
 
 // below here is just to set up the demo which really doesn't belong here...
 let n = 1;
@@ -13,7 +14,7 @@ buttonsContainer.style.rowGap = ".5em"
 document.body.appendChild(buttonsContainer)
 
 
-const allPositions = ["TopRight", "TopLeft", "BottomRight", "BottomLeft"]
+const allPositions = Object.keys(POSITIONS)
 
 for (let position of allPositions) {
   const button = document.createElement("button")

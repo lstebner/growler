@@ -1,5 +1,7 @@
 import styles from "./Growler.styles.css"
 
+import { MessageContainer, Notification } from "../components"
+
 export default function Growler(options) {
   const mergedOptions = Object.assign({}, Growler.defaultOptions, options)
   const { duration, position } = mergedOptions
@@ -8,18 +10,7 @@ export default function Growler(options) {
   growl.className = styles.message
   growl.innerHTML = options.contents
 
-  const messageContainerId = `growler__messages-container__${position}`
-
-  let messagesContainer = document.getElementById(messageContainerId)
-
-  if (!messagesContainer) {
-    messagesContainer = document.createElement("div")
-    messagesContainer.id = messageContainerId 
-    messagesContainer.className = styles.messagesContainer
-    messagesContainer.classList.add(styles[`position${position}`])
-
-    document.body.appendChild(messagesContainer)
-  }
+  const messagesContainer = MessageContainer({ position })
 
   messagesContainer.appendChild(growl)
 

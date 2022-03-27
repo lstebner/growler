@@ -16,7 +16,7 @@ A Growler Message can:
   - contain any HTML contents desired
   - be auto dismissed
   - be manually dismissed
-  - be "expanded" for detailed contents
+  - be "expanded" for detailed contents*
   - animate on show and hide
   - have a custom delay for auto dismiss
   - be queued to avoid overload*
@@ -24,6 +24,8 @@ A Growler Message can:
 
   *this queue requires an additional layer be designed. not part of MVP
   *expanded contents functionality is also not needed for MVP
+
+## How to Use
 
 
 ## the old README contents for posterity
