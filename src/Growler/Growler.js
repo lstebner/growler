@@ -8,14 +8,10 @@ export default function Growler(options) {
   const mergedOptions = Object.assign({}, Growler.defaultOptions, options)
   const { duration, position } = mergedOptions
 
-  const growl = Notification(mergedOptions)
-  const messagesContainer = MessageContainer({ position })
+  const notification = Notification(mergedOptions)
+  const messagesContainer = MessageContainer(position)
 
-  messagesContainer.appendChild(growl)
-
-  growl.addEventListener(EVENTS.DISMISS, () => {
-    messagesContainer.removeChild(growl)
-  })
+  messagesContainer.displayNotification(notification)
 }
 
 Growler.defaultOptions = {
