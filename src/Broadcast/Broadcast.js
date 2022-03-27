@@ -2,17 +2,12 @@ import styles from "./Broadcast.styles.css"
 
 import { MessageContainer } from "../components"
 import NotificationFactory from "../NotificationFactory"
+import { memo } from "../utils"
 
 import { DURATION, EVENTS, NOTIFICATION_TYPES, POSITIONS } from "../constants"
 
 export class Broadcaster {
-  static instance() {
-    if (!this._instance) {
-      this._instance = new Broadcaster(NotificationFactory)
-    }
-
-    return this._instance
-  }
+  static instance = memo(() => new Broadcaster(NotificationFactory))
 
   constructor(notificationFactory) {
     this.notificationFactory = notificationFactory
