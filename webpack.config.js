@@ -32,7 +32,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Growler",
+      title: "Broadcast",
     }),
   ]
 };

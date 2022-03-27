@@ -1,0 +1,13 @@
+:root {
+  --broadcast-background-color: #fff;
+  --broadcast-text-color: #222;
+  --broadcast-border: 1px solid #000;
+  --broadcast-border-radius: 4px;
+  --broadcast-message-font-size: 1rem;
+}
+
+:global .darkMode {
+  --broadcast-background-color: #000;
+  --broadcast-text-color: #efefef;
+  --broadcast-border: 1px solid #fff;
+}

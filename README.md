@@ -1,4 +1,4 @@
-# Growler
+# Broadcast
 
 back from the dead as of July 31, 2021
 
@@ -10,9 +10,9 @@ More to come soon!
 
 ## Architecture
 
-Growler is a notification system, but a Growler Message is pretty simple in general. 
+Broadcast is a notification system, but a Broadcast Message is pretty simple in general. 
 
-A Growler Message can:
+A Broadcast Message can:
   - contain any HTML contents desired
   - be auto dismissed
   - be manually dismissed

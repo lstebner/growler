@@ -1,5 +1,5 @@
 {
-  "name": "growler",
+  "name": "Broadcast",
   "version": "0.0.0",
   "description": "javascript in browser notifications",
   "main": "index.js",
