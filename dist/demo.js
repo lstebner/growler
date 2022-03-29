@@ -290,13 +290,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/demo.js":
+/*!*********************!*\
+  !*** ./src/demo.js ***!
+  \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _Broadcast__WEBPACK_IMPORTED_MODULE_0__.default)\n/* harmony export */ });\n/* harmony import */ var _Broadcast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Broadcast */ \"./src/Broadcast/index.js\");\n\n\n\n//# sourceURL=webpack://Broadcast/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Broadcast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Broadcast */ \"./src/Broadcast/index.js\");\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ \"./src/constants.js\");\n\n\n\nlet n = 1;\nconst buttonsContainer = document.createElement(\"div\")\nbuttonsContainer.style.display = \"flex\"\nbuttonsContainer.style.flexDirection = \"column\"\nbuttonsContainer.style.justifyContent = \"center\"\nbuttonsContainer.style.alignItems = \"center\"\nbuttonsContainer.style.height = \"100vh\"\nbuttonsContainer.style.width = \"100vw\"\nbuttonsContainer.style.rowGap = \".5em\"\ndocument.body.appendChild(buttonsContainer)\n\nconst allPositions = Object.keys(_constants__WEBPACK_IMPORTED_MODULE_1__.POSITIONS)\n\nfor (let position of allPositions) {\n  const button = document.createElement(\"button\")\n  button.name = \"broadcast_button\"\n  button.value = position\n  button.innerText = `broadcast ${position}`\n  button.addEventListener(\"click\", function() {\n    _Broadcast__WEBPACK_IMPORTED_MODULE_0__.default.toast({ contents: `hello, for the ${n} time. the message is now longer to show some wrapping. wrapping cannot be avoided, that's just how life goes you know...`, position })\n    n++;\n  })\n\n  buttonsContainer.appendChild(button)\n}\n\n\n//# sourceURL=webpack://Broadcast/./src/demo.js?");
 
 /***/ }),
 
@@ -402,7 +402,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/demo.js");
 /******/ 	
 /******/ })()
 ;

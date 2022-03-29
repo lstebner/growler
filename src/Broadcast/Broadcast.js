@@ -1,36 +1,37 @@
 import styles from "./Broadcast.styles.css"
 
 import { MessageContainer } from "../components"
-import NotificationFactory from "../NotificationFactory"
+import DefaultNotificationFactory from "../DefaultNotificationFactory"
 import { memo } from "../utils"
 
 import { DURATION, EVENTS, NOTIFICATION_TYPES, POSITIONS } from "../constants"
 
 export class Broadcaster {
-  static instance = memo(() => new Broadcaster(NotificationFactory))
+  get notificationFactory() {
+    if (!this._notificationFactoryInstance) {
+      this._notificationFactoryInstance = this.createNotificationFactory()
+    }
 
-  constructor(notificationFactory) {
-    this.notificationFactory = notificationFactory
+    return this._notificationFactoryInstance
+  }
+
+  createNotificationFactory() {
+    return DefaultNotificationFactory()
   }
 
   toast(options) {
-    return this.notificationFactory.create(NOTIFICATION_TYPES.TOAST, options)
+    options = Object.assign({
+      duration: DURATION.MEDIUM,
+      contents: "",
+      position: POSITIONS.NE,
+    }, options)
+
+    const messagesContainer = MessageContainer(options.position)
+    const notification = this.notificationFactory.create(NOTIFICATION_TYPES.TOAST, options)
+
+    messagesContainer.displayNotification(notification)
   }
 }
 
-export default function Broadcast(options) {
-  const mergedOptions = Object.assign({}, Broadcast.defaultOptions, options)
-  const { duration, position } = mergedOptions
-
-  const notification = Broadcaster.instance().toast(mergedOptions)
-  const messagesContainer = MessageContainer(position)
-
-  messagesContainer.displayNotification(notification)
-}
-
-Broadcast.defaultOptions = {
-  duration: DURATION.MEDIUM,
-  contents: "",
-  position: POSITIONS.NE,
-}
+export default new Broadcaster()
 

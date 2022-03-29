@@ -32,7 +32,7 @@
       "<rootDir>/jest.setup.js"
     ],
     "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
+      "\\.(s|)css$": "identity-obj-proxy"
     },
     "testEnvironment": "jsdom"
   }
